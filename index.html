@@ -74,45 +74,69 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🚨</div>
-                    <h3>Emergency Dental Care</h3>
-                    <p>Same-day appointments for pain, swelling, broken teeth, or urgent dental concerns. We prioritize
-                        your comfort and relief.</p>
-                    <a href="tel:+443001319797" class="service-link">Call for Emergency →</a>
+                    <div class="service-image-container">
+                        <img src="assets/services/emergency.png" alt="Emergency Dental Care">
+                    </div>
+                    <div class="service-content">
+                        <h3>Emergency Dental Care</h3>
+                        <p>Same-day appointments for pain, swelling, broken teeth, or urgent dental concerns. We
+                            prioritize your comfort and relief.</p>
+                        <a href="tel:+443001319797" class="service-link">Call for Emergency →</a>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">✨</div>
-                    <h3>Cosmetic Dentistry</h3>
-                    <p>Transform your smile with teeth whitening, veneers, and smile enhancements. Professional results
-                        you'll love.</p>
-                    <a href="#contact" class="service-link">Learn More →</a>
+                    <div class="service-image-container">
+                        <img src="assets/services/cosmetic.png" alt="Cosmetic Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Cosmetic Dentistry</h3>
+                        <p>Transform your smile with teeth whitening, veneers, and smile enhancements. Professional
+                            results you'll love.</p>
+                        <a href="#contact" class="service-link">Learn More →</a>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🦷</div>
-                    <h3>General Dentistry</h3>
-                    <p>Routine check-ups, hygiene, fillings, extractions, and preventive care for optimal oral health.
-                    </p>
-                    <a href="#contact" class="service-link">Book Check-up →</a>
+                    <div class="service-image-container">
+                        <img src="assets/services/general.jpg" alt="General Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>General Dentistry</h3>
+                        <p>Routine check-ups, hygiene, fillings, extractions, and preventive care for optimal oral
+                            health.</p>
+                        <a href="#contact" class="service-link">Book Check-up →</a>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Restorative Treatments</h3>
-                    <p>Dental implants, crowns, bridges, and root canal treatments to restore function and aesthetics.
-                    </p>
-                    <a href="#contact" class="service-link">Explore Options →</a>
+                    <div class="service-image-container">
+                        <img src="assets/services/restorative.png" alt="Restorative Treatments">
+                    </div>
+                    <div class="service-content">
+                        <h3>Restorative Treatments</h3>
+                        <p>Dental implants, crowns, bridges, and root canal treatments to restore function and
+                            aesthetics.</p>
+                        <a href="#contact" class="service-link">Explore Options →</a>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">😊</div>
-                    <h3>Invisalign & Straightening</h3>
-                    <p>Discreet teeth straightening solutions for a confident, aligned smile without traditional braces.
-                    </p>
-                    <a href="#contact" class="service-link">Get Started →</a>
+                    <div class="service-image-container">
+                        <img src="assets/services/invisalign.png" alt="Invisalign & Straightening">
+                    </div>
+                    <div class="service-content">
+                        <h3>Invisalign & Straightening</h3>
+                        <p>Discreet teeth straightening solutions for a confident, aligned smile without traditional
+                            braces.</p>
+                        <a href="#contact" class="service-link">Get Started →</a>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">💤</div>
-                    <h3>Sedation Dentistry</h3>
-                    <p>Comfortable, anxiety-free dental care with sedation options for nervous patients.</p>
-                    <a href="#contact" class="service-link">Ask About Sedation →</a>
+                    <div class="service-image-container">
+                        <img src="assets/services/sedation.jpg" alt="Sedation Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Sedation Dentistry</h3>
+                        <p>Comfortable, anxiety-free dental care with sedation options for nervous patients.</p>
+                        <a href="#contact" class="service-link">Ask About Sedation →</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -333,12 +357,7 @@
                 </div>
             </div>
         </div>
-        <div class="chatbot-suggestions" id="chatbotSuggestions">
-            <button class="suggestion-chip" data-message="What are your emergency hours?">Emergency Hours</button>
-            <button class="suggestion-chip" data-message="What services do you offer?">Services & Pricing</button>
-            <button class="suggestion-chip" data-message="Where are you located?">Location & Parking</button>
-            <button class="suggestion-chip" data-message="Do you accept NHS patients?">NHS Options</button>
-        </div>
+
         <div class="chatbot-input-area">
             <input type="text" id="chatbotInput" placeholder="Type your message..." aria-label="Chat message">
             <button id="chatbotSend" aria-label="Send message">Send</button>

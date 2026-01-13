@@ -52,7 +52,7 @@ const chatbotClose = document.getElementById('chatbotClose');
 const chatbotMessages = document.getElementById('chatbotMessages');
 const chatbotInput = document.getElementById('chatbotInput');
 const chatbotSend = document.getElementById('chatbotSend');
-const chatbotSuggestions = document.getElementById('chatbotSuggestions');
+
 const clearChat = document.getElementById('clearChat');
 const greetingMessage = document.getElementById('greetingMessage');
 
@@ -186,14 +186,7 @@ chatbotInput.addEventListener('keypress', (e) => {
     }
 });
 
-// Suggestion chips
-const suggestionChips = document.querySelectorAll('.suggestion-chip');
-suggestionChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-        const message = chip.getAttribute('data-message');
-        sendMessage(message);
-    });
-});
+
 
 // Clear chat
 clearChat.addEventListener('click', () => {

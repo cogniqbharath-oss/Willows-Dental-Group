@@ -321,10 +321,13 @@ button {
 
 .service-card {
     background-color: var(--white);
-    padding: var(--spacing-lg);
+    padding: 0;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .service-card:hover {
@@ -332,9 +335,29 @@ button {
     box-shadow: var(--shadow-lg);
 }
 
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-md);
+.service-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .service-image-container img {
+    transform: scale(1.1);
+}
+
+.service-content {
+    padding: var(--spacing-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card h3 {
@@ -347,6 +370,7 @@ button {
 .service-card p {
     color: var(--text-grey);
     margin-bottom: var(--spacing-md);
+    flex-grow: 1;
 }
 
 .service-link {
@@ -920,29 +944,7 @@ button {
     }
 }
 
-.chatbot-suggestions {
-    padding: var(--spacing-sm) var(--spacing-md);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    background-color: var(--white);
-    flex-shrink: 0;
-}
 
-.suggestion-chip {
-    background-color: var(--light-grey);
-    color: var(--primary-dark);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    border: 1px solid var(--medium-grey);
-}
-
-.suggestion-chip:hover {
-    background-color: var(--accent-blue);
-    color: var(--white);
-    border-color: var(--accent-blue);
-}
 
 .chatbot-input-area {
     display: flex;
