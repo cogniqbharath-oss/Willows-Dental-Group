@@ -135,9 +135,9 @@ function removeTypingIndicator(indicator) {
 // Send message to API
 async function sendMessage(message) {
     addUserMessage(message);
-    
+
     const typingIndicator = showTypingIndicator();
-    
+
     try {
         const response = await fetch('/api/worker', {
             method: 'POST',
@@ -146,14 +146,14 @@ async function sendMessage(message) {
             },
             body: JSON.stringify({ message: message })
         });
-        
+
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        
+
         const data = await response.json();
         removeTypingIndicator(typingIndicator);
-        
+
         if (data.response) {
             addBotMessage(data.response);
         } else {
@@ -164,7 +164,7 @@ async function sendMessage(message) {
         removeTypingIndicator(typingIndicator);
         addBotMessage("I'm having trouble connecting right now. Please try again later or call us directly at +44 300 131 9797 for immediate assistance.");
     }
-    
+
     chatbotInput.value = '';
 }
 
@@ -223,13 +223,40 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe service cards and gallery items
-document.querySelectorAll('.service-card, .gallery-item').forEach(el => {
+// Observe service cards only (gallery items use CSS animations)
+document.querySelectorAll('.service-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+// ===================================
+// Enhanced Gallery Interactivity
+// ===================================
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+// Add subtle parallax effect on mouse move
+galleryItems.forEach(item => {
+    item.addEventListener('mousemove', (e) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+
+        item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.02)`;
+    });
+
+    item.addEventListener('mouseleave', () => {
+        item.style.transform = '';
+    });
+});
+
 
 // ===================================
 // Form Validation (if needed)
