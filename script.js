@@ -139,7 +139,7 @@ async function sendMessage(message) {
     const typingIndicator = showTypingIndicator();
 
     try {
-        const response = await fetch('/api/worker', {
+        const response = await fetch('https://crimson-water-81f1.cogniq-bharath.workers.dev/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
