@@ -6,14 +6,21 @@ const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-// Navbar scroll effect
+// Navbar scroll effect with simple throttle
+let isScrolling = false;
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            isScrolling = false;
+        });
+        isScrolling = true;
     }
-});
+}, { passive: true });
 
 // Mobile menu toggle
 navToggle.addEventListener('click', () => {
@@ -229,26 +236,28 @@ document.querySelectorAll('.service-card').forEach(el => {
 // ===================================
 const galleryItems = document.querySelectorAll('.gallery-item');
 
-// Add subtle parallax effect on mouse move
-galleryItems.forEach(item => {
-    item.addEventListener('mousemove', (e) => {
-        const rect = item.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+// Add subtle parallax effect on mouse move - Desktop only
+if (window.matchMedia('(pointer: fine)').matches) {
+    galleryItems.forEach(item => {
+        item.addEventListener('mousemove', (e) => {
+            const rect = item.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
 
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
 
-        item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.02)`;
+            item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.02)`;
+        });
+
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = '';
+        });
     });
-
-    item.addEventListener('mouseleave', () => {
-        item.style.transform = '';
-    });
-});
+}
 
 
 // ===================================
